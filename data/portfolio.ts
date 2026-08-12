@@ -41,13 +41,18 @@ export const education = [
     school: "Business Communication Center",
     date: "2025",
   },
+  {
+    degree: "Baccalauréat S2",
+    school: "Lycée Didier Marie, Saint-Louis",
+    date: "2021",
+  },
 ];
 
 export const skills = {
   languages: ["C", "Java", "JavaScript", "PHP", "HTML/CSS"],
   databases: ["SQL POSTGRES", "Oracle SQL", "MySQL"],
   tools: ["Eclipse", "VS Code", "Linux", "Windows", "Pack Office"],
-  soft: ["Communication", "Empathie", "Leadership", "Télévendeur"],
+  soft: ["Communication commerciale", "Empathie et écoute active", "Leadership", "Télévendeur"],
 };
 
 export const skillsCategories = [
@@ -81,6 +86,12 @@ export const languages = [
 ];
 
 export const interests = [
-  "Basketball", "American Football", "Natation",
-  "Nouvelles technologies", "Aviation", "Arts créatifs",
+  "Basketball (12 ans d'expérience)",
+  "American Football",
+  "Natation",
+  "Nouvelles technologies",
+  "Aviation & Aéronautique",
+  "Arts créatifs",
+  "Cuisine",
+  "Cultures étrangères",
 ];

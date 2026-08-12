@@ -8,18 +8,6 @@
   }
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #18181b;
-}
-::-webkit-scrollbar-thumb {
-  background: #818cf8;
-  border-radius: 9999px;
-}
-
 html {
   scroll-behavior: smooth;
 }
