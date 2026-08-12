@@ -1,0 +1,1 @@
+"use strict";exports.id=826,exports.ids=[826],exports.modules={6826:(o,e,r)=>{r.r(e),r.d(e,{$$typeof:()=>p,__esModule:()=>a,default:()=>c});var t=r(8570);let s=(0,t.createProxy)(String.raw`/workspaces/portfolio-boubacar/components/Hero.tsx`),{__esModule:a,$$typeof:p}=s;s.default;let c=(0,t.createProxy)(String.raw`/workspaces/portfolio-boubacar/components/Hero.tsx#default`)}};

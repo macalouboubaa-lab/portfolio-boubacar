@@ -2,15 +2,62 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Download } from "lucide-react";
 import Link from "next/link";
-import Typewriter from "react-typewriter-effect";
+import { useEffect, useState } from "react";
 import { personalInfo } from "@/data/portfolio";
 
 export default function Hero() {
+  const [isMounted, setIsMounted] = useState(false);
+  const [textIndex, setTextIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const titles = [
+    "Développeur Full-Stack Junior",
+    "Génie Logiciel",
+    "Formateur & Entrepreneur",
+  ];
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) return;
+    
+    let currentIndex = 0;
+    let isDeleting = false;
+    let timeoutId: NodeJS.Timeout;
+
+    const type = () => {
+      const fullText = titles[textIndex];
+      if (isDeleting) {
+        setDisplayText(fullText.substring(0, currentIndex - 1));
+        currentIndex--;
+      } else {
+        setDisplayText(fullText.substring(0, currentIndex + 1));
+        currentIndex++;
+      }
+
+      let speed = isDeleting ? 50 : 100;
+
+      if (!isDeleting && currentIndex === fullText.length) {
+        speed = 2000;
+        isDeleting = true;
+      } else if (isDeleting && currentIndex === 0) {
+        isDeleting = false;
+        setTextIndex((prev) => (prev + 1) % titles.length);
+        speed = 500;
+      }
+
+      timeoutId = setTimeout(type, speed);
+    };
+
+    type();
+    return () => clearTimeout(timeoutId);
+  }, [textIndex, isMounted]);
+
   return (
     <section id="home" className="min-h-screen flex items-center pt-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Texte */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -27,27 +74,15 @@ export default function Hero() {
               <span className="text-white">{personalInfo.name}</span>
             </h1>
 
-            <div className="mt-2 text-lg sm:text-xl text-zinc-400">
-              <Typewriter
-                textStyle={{ color: "#818cf8" }}
-                startDelay={1000}
-                cursorColor="#818cf8"
-                multiText={[
-                  "Développeur Full-Stack Junior",
-                  "Génie Logiciel",
-                  "Formateur & Entrepreneur",
-                ]}
-                multiTextDelay={3000}
-                typeSpeed={50}
-                loop
-              />
+            <div className="mt-2 text-lg sm:text-xl text-indigo-400 min-h-[2.5rem]">
+              {isMounted ? displayText : titles[0]}
+              {isMounted && <span className="inline-block w-0.5 h-6 ml-1 bg-indigo-400 animate-pulse" />}
             </div>
 
             <p className="mt-6 text-zinc-400 max-w-lg">
-              {personalInfo.subtitle}. Passionné par le web, la formation et les nouvelles technologies.
+              {personalInfo.subtitle}
             </p>
 
-            {/* Actions */}
             <div className="mt-8 flex flex-wrap gap-4">
               <a
                 href="/cv.pdf"
@@ -65,7 +100,6 @@ export default function Hero() {
               </Link>
             </div>
 
-            {/* Socials */}
             <div className="mt-8 flex gap-4">
               <a
                 href={personalInfo.github}
@@ -92,7 +126,6 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Avatar / Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
