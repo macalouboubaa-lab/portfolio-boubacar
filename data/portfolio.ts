@@ -66,12 +66,12 @@ export const skillsCategories = [
 export const projects = [
   {
     id: 1,
-    title: "TERANGA — VTC & Livraison",
+    title: "NIU DEIM — VTC & Mobilité et Transport Urbain",
     description: "Application de VTC et livraison pour le Sénégal.",
     image: "",
     tags: ["Next.js", "TypeScript", "Supabase"],
-    demo: "https://teranga-theta.vercel.app/",
-    github: "https://github.com/macalouboubaa-lab/teranga",
+    demo: "https://dakar-mobility-seven.vercel.app/",
+    github: "https://github.com/macalouboubaa-lab/dakar-mobility",
     category: "Fullstack",
   },
 ];
