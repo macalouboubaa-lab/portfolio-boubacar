@@ -161,7 +161,7 @@ export default function Hero() {
                 <span className="text-8xl sm:text-9xl">
                   // Puis remplacez l'emoji par :
 <Image
-  src="/images/profile.jpg"
+  src="/public/profile.jpeg"
   alt={personalInfo.name}
   width={400}
   height={400}
