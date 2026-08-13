@@ -1,13 +1,119 @@
+/* ============================================================
+   THEME ROVEN — Palette de couleurs
+   ============================================================ */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   VARIABLES CSS
+   ============================================================ */
 @layer base {
+  :root {
+    /* Couleurs principales */
+    --roven-bg: #0A1628;
+    --roven-bg-card: #1A2A3A;
+    --roven-border: #243447;
+    --roven-text: #F5F5F5;
+    --roven-text-secondary: #8A9BA8;
+    --roven-gold: #D4AF37;
+    --roven-gold-light: #E8C65A;
+    --roven-input: #1A2A3A;
+    
+    /* Ombres */
+    --roven-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --roven-shadow-gold: 0 4px 20px rgba(212, 175, 55, 0.2);
+  }
+
   body {
-    @apply bg-zinc-950 text-zinc-50;
+    @apply bg-[#0A1628] text-[#F5F5F5];
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
 
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0A1628;
+}
+::-webkit-scrollbar-thumb {
+  background: #D4AF37;
+  border-radius: 9999px;
+}
+
+/* ============================================================
+   SELECTION
+   ============================================================ */
+::selection {
+  background: #D4AF37;
+  color: #0A1628;
+}
+
+/* ============================================================
+   SMOOTH SCROLLING
+   ============================================================ */
 html {
   scroll-behavior: smooth;
+}
+
+/* ============================================================
+   CLASSES UTILITAIRES ROVEN
+   ============================================================ */
+@layer components {
+  /* Bouton principal (Or) */
+  .btn-roven {
+    @apply bg-[#D4AF37] hover:bg-[#E8C65A] text-[#0A1628] font-semibold;
+    @apply px-6 py-3 rounded-xl transition duration-300;
+    @apply shadow-[0_4px_20px_rgba(212,175,55,0.2)];
+    @apply hover:shadow-[0_4px_30px_rgba(212,175,55,0.4)] hover:-translate-y-0.5;
+  }
+
+  /* Bouton secondaire (Bordure dorée) */
+  .btn-roven-outline {
+    @apply border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37]/10;
+    @apply px-6 py-3 rounded-xl transition duration-300;
+    @apply hover:-translate-y-0.5;
+  }
+
+  /* Carte Roven */
+  .card-roven {
+    @apply bg-[#1A2A3A] border border-[#243447] rounded-2xl;
+    @apply shadow-[0_8px_32px_rgba(0,0,0,0.4)];
+    @apply hover:border-[#D4AF37]/30 transition duration-300;
+  }
+
+  /* Input Roven */
+  .input-roven {
+    @apply bg-[#1A2A3A] border border-[#243447] text-[#F5F5F5];
+    @apply rounded-xl px-4 py-3 focus:border-[#D4AF37] focus:outline-none;
+    @apply transition duration-300;
+  }
+
+  /* Glassmorphism */
+  .glass-roven {
+    @apply bg-[#1A2A3A]/80 backdrop-blur-md border border-[#243447]/50;
+    @apply shadow-[0_8px_32px_rgba(0,0,0,0.3)];
+  }
+
+  /* Lien doré */
+  .link-gold {
+    @apply text-[#D4AF37] hover:text-[#E8C65A] transition duration-300;
+  }
+
+  /* Texte doré */
+  .text-gold {
+    @apply text-[#D4AF37];
+  }
+
+  /* Badge de statut */
+  .badge-roven {
+    @apply inline-flex items-center gap-2 px-3 py-1;
+    @apply bg-[#D4AF37]/10 border border-[#D4AF37]/20;
+    @apply rounded-full text-[#D4AF37] text-sm;
+  }
 }
