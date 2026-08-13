@@ -1,5 +1,5 @@
 /* ============================================================
-   THEME ROVEN — Palette de couleurs
+   THEME ROVEN — Palette de couleurs (Version corrigée)
    ============================================================ */
 
 @tailwind base;
@@ -11,19 +11,21 @@
    ============================================================ */
 @layer base {
   :root {
-    /* Couleurs principales */
-    --roven-bg: #0A1628;
-    --roven-bg-card: #1A2A3A;
-    --roven-border: #243447;
-    --roven-text: #F5F5F5;
-    --roven-text-secondary: #8A9BA8;
-    --roven-gold: #D4AF37;
-    --roven-gold-light: #E8C65A;
-    --roven-input: #1A2A3A;
+    /* Couleurs principales — Roven */
+    --roven-bg: #0A1628;           /* Fond principal (bleu nuit profond) */
+    --roven-bg-card: #1A2A3A;      /* Fond des cartes */
+    --roven-border: #243447;       /* Bordures */
+    --roven-text: #F5F5F5;         /* Texte principal (blanc cassé) */
+    --roven-text-secondary: #8A9BA8; /* Texte secondaire (gris bleuté) */
+    --roven-gold: #D4AF37;         /* Or — couleur principale des boutons */
+    --roven-gold-light: #E8C65A;   /* Or clair — survol des boutons */
+    --roven-gold-dark: #B8962F;    /* Or foncé — version alternative */
+    --roven-input: #1A2A3A;        /* Fond des inputs */
     
     /* Ombres */
     --roven-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
     --roven-shadow-gold: 0 4px 20px rgba(212, 175, 55, 0.2);
+    --roven-shadow-gold-hover: 0 4px 30px rgba(212, 175, 55, 0.4);
   }
 
   body {
@@ -33,7 +35,7 @@
 }
 
 /* ============================================================
-   SCROLLBAR
+   SCROLLBAR (Dorée)
    ============================================================ */
 ::-webkit-scrollbar {
   width: 6px;
@@ -47,7 +49,7 @@
 }
 
 /* ============================================================
-   SELECTION
+   SELECTION (Dorée)
    ============================================================ */
 ::selection {
   background: #D4AF37;
@@ -65,7 +67,10 @@ html {
    CLASSES UTILITAIRES ROVEN
    ============================================================ */
 @layer components {
-  /* Bouton principal (Or) */
+  /* ==========================================================
+     BOUTON PRINCIPAL (Or) — Style Roven
+     Utiliser sur : Réservation, CTA, actions principales
+     ========================================================== */
   .btn-roven {
     @apply bg-[#D4AF37] hover:bg-[#E8C65A] text-[#0A1628] font-semibold;
     @apply px-6 py-3 rounded-xl transition duration-300;
@@ -73,47 +78,103 @@ html {
     @apply hover:shadow-[0_4px_30px_rgba(212,175,55,0.4)] hover:-translate-y-0.5;
   }
 
-  /* Bouton secondaire (Bordure dorée) */
+  /* ==========================================================
+     BOUTON SECONDAIRE (Bordure dorée) — Style Roven
+     Utiliser sur : "Comment ça marche", actions secondaires
+     ========================================================== */
   .btn-roven-outline {
     @apply border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37]/10;
     @apply px-6 py-3 rounded-xl transition duration-300;
     @apply hover:-translate-y-0.5;
   }
 
-  /* Carte Roven */
+  /* ==========================================================
+     BOUTON TEXTE (Lien doré) — Style Roven
+     ========================================================== */
+  .btn-roven-text {
+    @apply text-[#D4AF37] hover:text-[#E8C65A] font-medium;
+    @apply transition duration-300 hover:underline;
+  }
+
+  /* ==========================================================
+     CARTE ROVEN
+     ========================================================== */
   .card-roven {
     @apply bg-[#1A2A3A] border border-[#243447] rounded-2xl;
     @apply shadow-[0_8px_32px_rgba(0,0,0,0.4)];
     @apply hover:border-[#D4AF37]/30 transition duration-300;
   }
 
-  /* Input Roven */
+  /* ==========================================================
+     INPUT ROVEN
+     ========================================================== */
   .input-roven {
     @apply bg-[#1A2A3A] border border-[#243447] text-[#F5F5F5];
     @apply rounded-xl px-4 py-3 focus:border-[#D4AF37] focus:outline-none;
     @apply transition duration-300;
   }
 
-  /* Glassmorphism */
+  /* ==========================================================
+     EFFET VERRE (Glassmorphism)
+     ========================================================== */
   .glass-roven {
     @apply bg-[#1A2A3A]/80 backdrop-blur-md border border-[#243447]/50;
     @apply shadow-[0_8px_32px_rgba(0,0,0,0.3)];
   }
 
-  /* Lien doré */
+  /* ==========================================================
+     LIEN DORÉ
+     ========================================================== */
   .link-gold {
     @apply text-[#D4AF37] hover:text-[#E8C65A] transition duration-300;
   }
 
-  /* Texte doré */
+  /* ==========================================================
+     TEXTE DORÉ
+     ========================================================== */
   .text-gold {
     @apply text-[#D4AF37];
   }
 
-  /* Badge de statut */
+  /* ==========================================================
+     BADGE DE STATUT (Disponible, En ligne, etc.)
+     ========================================================== */
   .badge-roven {
     @apply inline-flex items-center gap-2 px-3 py-1;
     @apply bg-[#D4AF37]/10 border border-[#D4AF37]/20;
     @apply rounded-full text-[#D4AF37] text-sm;
+  }
+
+  /* ==========================================================
+     TITRE PRINCIPAL (Hero)
+     ========================================================== */
+  .hero-title {
+    @apply text-4xl sm:text-5xl lg:text-6xl font-bold font-playfair leading-tight;
+  }
+
+  .hero-title .highlight {
+    @apply text-[#D4AF37];
+  }
+
+  .hero-subtitle {
+    @apply text-lg sm:text-xl text-[#D4AF37] font-light;
+  }
+
+  /* ==========================================================
+     SECTION TITRE
+     ========================================================== */
+  .section-title {
+    @apply text-3xl sm:text-4xl font-bold font-playfair;
+  }
+
+  .section-title .highlight {
+    @apply text-[#D4AF37];
+  }
+
+  /* ==========================================================
+     TEXTE DE DESCRIPTION
+     ========================================================== */
+  .text-secondary {
+    @apply text-[#8A9BA8];
   }
 }
