@@ -1,23 +1,12 @@
-// ============================================================
-// 1. DIRECTIVES ET IMPORTS
-// ============================================================
-
 "use client";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Download } from "lucide-react";
 import Link from "next/link";
-import { personalInfo } from "@/data/portfolio";
 import Image from "next/image";
-// ============================================================
-// 2. COMPOSANT PRINCIPAL - HERO
-// ============================================================
+import { personalInfo } from "@/data/portfolio";
 
 export default function Hero() {
-  // ============================================================
-  // 3. ÉTATS DU COMPOSANT
-  // ============================================================
-
   const [isMounted, setIsMounted] = useState(false);
   const [textIndex, setTextIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
@@ -26,10 +15,6 @@ export default function Hero() {
     "Génie Logiciel",
     "Formateur & Entrepreneur",
   ];
-
-  // ============================================================
-  // 4. EFFETS SECONDAIRES
-  // ============================================================
 
   useEffect(() => {
     setIsMounted(true);
@@ -70,38 +55,33 @@ export default function Hero() {
     return () => clearTimeout(timeoutId);
   }, [textIndex, isMounted]);
 
-  // ============================================================
-  // 5. RENDU DU COMPOSANT
-  // ============================================================
-
   return (
     <section id="home" className="min-h-screen flex items-center pt-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           
-          {/* ===== SECTION GAUCHE : TEXTE ===== */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full text-emerald-400 text-sm mb-6">
-              <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
+            <div className="badge-roven mb-6">
+              <span className="w-2 h-2 bg-[#D4AF37] rounded-full animate-pulse" />
               {personalInfo.status}
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-space-grotesk leading-tight">
-              <span className="text-zinc-300">Bonjour, je suis</span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-playfair leading-tight">
+              <span className="text-[#8A9BA8]">Bonjour, je suis</span>
               <br />
-              <span className="text-white">{personalInfo.name}</span>
+              <span className="text-[#F5F5F5]">{personalInfo.name}</span>
             </h1>
 
-            <div className="mt-2 text-lg sm:text-xl text-indigo-400 min-h-[2.5rem]">
+            <div className="mt-2 text-lg sm:text-xl text-[#D4AF37] min-h-[2.5rem]">
               {isMounted ? displayText : titles[0]}
-              {isMounted && <span className="inline-block w-0.5 h-6 ml-1 bg-indigo-400 animate-pulse" />}
+              {isMounted && <span className="inline-block w-0.5 h-6 ml-1 bg-[#D4AF37] animate-pulse" />}
             </div>
 
-            <p className="mt-6 text-zinc-400 max-w-lg">
+            <p className="mt-6 text-[#8A9BA8] max-w-lg">
               {personalInfo.subtitle}
             </p>
 
@@ -109,14 +89,14 @@ export default function Hero() {
               <a
                 href="/cv.pdf"
                 download
-                className="flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition shadow-lg shadow-indigo-600/20"
+                className="btn-roven"
               >
-                <Download size={18} />
+                <Download size={18} className="inline mr-2" />
                 Télécharger le CV
               </a>
               <Link
                 href="#contact"
-                className="flex items-center gap-2 px-6 py-3 border border-zinc-700 hover:border-indigo-500 text-zinc-300 hover:text-white rounded-lg transition"
+                className="btn-roven-outline"
               >
                 Me contacter
               </Link>
@@ -127,28 +107,27 @@ export default function Hero() {
                 href={personalInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 bg-zinc-800 hover:bg-zinc-700 rounded-lg transition group"
+                className="p-2.5 bg-[#1A2A3A] hover:bg-[#243447] rounded-lg transition group"
               >
-                <Github size={20} className="text-zinc-400 group-hover:text-white transition" />
+                <Github size={20} className="text-[#8A9BA8] group-hover:text-[#D4AF37] transition" />
               </a>
               <a
                 href={personalInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 bg-zinc-800 hover:bg-zinc-700 rounded-lg transition group"
+                className="p-2.5 bg-[#1A2A3A] hover:bg-[#243447] rounded-lg transition group"
               >
-                <Linkedin size={20} className="text-zinc-400 group-hover:text-white transition" />
+                <Linkedin size={20} className="text-[#8A9BA8] group-hover:text-[#D4AF37] transition" />
               </a>
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="p-2.5 bg-zinc-800 hover:bg-zinc-700 rounded-lg transition group"
+                className="p-2.5 bg-[#1A2A3A] hover:bg-[#243447] rounded-lg transition group"
               >
-                <Mail size={20} className="text-zinc-400 group-hover:text-white transition" />
+                <Mail size={20} className="text-[#8A9BA8] group-hover:text-[#D4AF37] transition" />
               </a>
             </div>
           </motion.div>
 
-          {/* ===== SECTION DROITE : IMAGE ===== */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -156,19 +135,17 @@ export default function Hero() {
             className="flex justify-center lg:justify-end"
           >
             <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
-              <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/20 to-emerald-500/20 rounded-3xl blur-2xl" />
-              <div className="relative w-full h-full rounded-3xl border border-zinc-800 bg-zinc-900/50 flex items-center justify-center overflow-hidden">
-                <span className="text-8xl sm:text-9xl">
-                  // Puis remplacez l'emoji par :
-<Image
-  src="public/images/profile/profile.jpg"
-  alt={personalInfo.name}
-  width={400}
-  height={400}
-  className="object-cover w-full h-full"
-  priority
-/>
-                </span>
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#D4AF37]/20 to-[#0A1628] rounded-3xl blur-2xl" />
+              <div className="relative w-full h-full rounded-3xl border border-[#243447] bg-[#1A2A3A] flex items-center justify-center overflow-hidden">
+                <Image
+                  src="https://jsmjrrmkcufzanpkbcuc.supabase.co/storage/v1/object/public/portfolio-assets/profile.jpeg"
+                  alt={personalInfo.name}
+                  width={400}
+                  height={400}
+                  className="object-cover w-full h-full"
+                  priority
+                  unoptimized
+                />
               </div>
             </div>
           </motion.div>
