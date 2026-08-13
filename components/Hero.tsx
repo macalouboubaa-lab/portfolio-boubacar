@@ -1,11 +1,23 @@
+// ============================================================
+// 1. DIRECTIVES ET IMPORTS
+// ============================================================
+
 "use client";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Download } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { personalInfo } from "@/data/portfolio";
+import Image from "next/image";
+// ============================================================
+// 2. COMPOSANT PRINCIPAL - HERO
+// ============================================================
 
 export default function Hero() {
+  // ============================================================
+  // 3. ÉTATS DU COMPOSANT
+  // ============================================================
+
   const [isMounted, setIsMounted] = useState(false);
   const [textIndex, setTextIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
@@ -14,6 +26,10 @@ export default function Hero() {
     "Génie Logiciel",
     "Formateur & Entrepreneur",
   ];
+
+  // ============================================================
+  // 4. EFFETS SECONDAIRES
+  // ============================================================
 
   useEffect(() => {
     setIsMounted(true);
@@ -54,10 +70,16 @@ export default function Hero() {
     return () => clearTimeout(timeoutId);
   }, [textIndex, isMounted]);
 
+  // ============================================================
+  // 5. RENDU DU COMPOSANT
+  // ============================================================
+
   return (
     <section id="home" className="min-h-screen flex items-center pt-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
+          
+          {/* ===== SECTION GAUCHE : TEXTE ===== */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -126,6 +148,7 @@ export default function Hero() {
             </div>
           </motion.div>
 
+          {/* ===== SECTION DROITE : IMAGE ===== */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -135,7 +158,17 @@ export default function Hero() {
             <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
               <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/20 to-emerald-500/20 rounded-3xl blur-2xl" />
               <div className="relative w-full h-full rounded-3xl border border-zinc-800 bg-zinc-900/50 flex items-center justify-center overflow-hidden">
-                <span className="text-8xl sm:text-9xl">👨‍💻</span>
+                <span className="text-8xl sm:text-9xl">
+                  // Puis remplacez l'emoji par :
+<Image
+  src="/images/profile.jpg"
+  alt={personalInfo.name}
+  width={400}
+  height={400}
+  className="object-cover w-full h-full"
+  priority
+/>
+                </span>
               </div>
             </div>
           </motion.div>

@@ -1,17 +1,18 @@
 export const personalInfo = {
-  name: "Boubacar Cissé",
+  name: "Ousseynou Boubacar Cissé",
+  //avatar: "/public/profile.jpeg",  //photo
   title: "Développeur Full-Stack Junior",
   subtitle: "Génie Logiciel • Développeur Web • Formateur • Entrepreneur",
   email: "macalouboubaa@gmail.com",
   phone: "77 315 04 50",
-  location: "Nordfoire, Dakar, Sénégal",
+  location: "Nordfoire, Dakar, Sénégal / Saint-Louis, Ndiolofene",
   github: "https://github.com/macalouboubaa-lab",
   linkedin: "https://linkedin.com/in/boubacar-cisse",
   status: "Disponible pour de nouveaux projets",
 };
 
 export const about = {
-  description: "Je suis Boubacar Cissé, développeur web passionné avec une solide formation en génie logiciel.",
+  description: "Je suis Ousseynou Boubacar Cissé, Technicien Superieur en Informatique, passionné avec une solide formation en génie logiciel.",
   mission: "Créer des expériences numériques qui allient performance, esthétique et simplicité.",
 };
 
@@ -39,7 +40,7 @@ export const education = [
   {
     degree: "Certificat en Gestion de la Relation Client",
     school: "Business Communication Center",
-    date: "2025",
+    date: "Octobre 2025",
   },
   {
     degree: "Baccalauréat S2",
@@ -69,7 +70,7 @@ export const projects = [
     description: "Application de VTC et livraison pour le Sénégal.",
     image: "",
     tags: ["Next.js", "TypeScript", "Supabase"],
-    demo: "https://teranga.vercel.app",
+    demo: "https://teranga-theta.vercel.app/",
     github: "https://github.com/macalouboubaa-lab/teranga",
     category: "Fullstack",
   },
