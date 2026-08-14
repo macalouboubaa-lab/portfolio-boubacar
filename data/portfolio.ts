@@ -64,14 +64,45 @@ export const skillsCategories = [
 ];
 
 export const projects = [
+  // ==========================================================
+  // PROJET 1 : NIU DEIM (Version initiale)
+  // ==========================================================
   {
     id: 1,
-    title: "NIU DEIM — VTC & Mobilité et Transport Urbain",
-    description: "Application de VTC et livraison pour le Sénégal.",
+    title: "NIU DEIM — Mobilité & Transport Urbain",
+    description: "Version initiale du concept de mobilité urbaine. Cette application a servi de prototype et de test pour poser les bases de la plateforme DAKAR MOBILITY, en explorant l'agrégation des transports à Dakar.",
     image: "",
     tags: ["Next.js", "TypeScript", "Supabase"],
-    demo: "https://dakar-mobility-seven.vercel.app/",
+    demo: "https://dakar-mobility-seven.vercel.app",
     github: "https://github.com/macalouboubaa-lab/dakar-mobility",
+    category: "Prototype & Mobilité",
+  },
+
+  // ==========================================================
+  // PROJET 2 : DAKAR MOBILITY (Version finale)
+  // ==========================================================
+  {
+    id: 2,
+    title: "DAKAR MOBILITY",
+    description: "Plateforme multi-modale qui agrège tous les transports de Dakar (BRT, TER, Cars Rapides, Ndiaga Ndiaye, taxis). Elle permet de trouver le meilleur trajet en combinant prix, durée et correspondances.",
+    image: "",
+    tags: ["Next.js", "TypeScript", "Supabase", "Mapbox"],
+    demo: "https://dakar-mobility-v2-6sclny8ye-macalouboubaa-labs-projects.vercel.app",
+    github: "https://github.com/macalouboubaa-lab/dakar-mobility",
+    category: "Fullstack",
+  },
+
+  // ==========================================================
+  // PROJET 3 : TERANGA — Mobilité & Voyages Transrégionaux
+  // ==========================================================
+  {
+    id: 3,
+    title: "TERANGA — Taxis & Voyages Transrégionaux",
+    description: "Application inspirée de Yango, mais repensée pour le Sénégal. Elle vise à faciliter la réservation de taxis pour les longs trajets (ex : 'wargaidé') et les voyages entre les régions, tout en simplifiant la mobilité locale.",
+    image: "",
+    tags: ["Next.js", "TypeScript", "Supabase", "Mapbox"],
+    demo: "https://teranga-theta.vercel.app",
+    github: "https://github.com/macalouboubaa-lab/teranga",
     category: "Fullstack",
   },
 ];

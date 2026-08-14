@@ -1,0 +1,53 @@
+[1mdiff --git a/data/portfolio.ts b/data/portfolio.ts[m
+[1mindex f85cc78..9f756b7 100644[m
+[1m--- a/data/portfolio.ts[m
+[1m+++ b/data/portfolio.ts[m
+[36m@@ -64,14 +64,45 @@[m [mexport const skillsCategories = [[m
+ ];[m
+ [m
+ export const projects = [[m
+[32m+[m[32m  // ==========================================================[m
+[32m+[m[32m  // PROJET 1 : NIU DEIM (Version initiale)[m
+[32m+[m[32m  // ==========================================================[m
+   {[m
+     id: 1,[m
+[31m-    title: "NIU DEIM — VTC & Mobilité et Transport Urbain",[m
+[31m-    description: "Application de VTC et livraison pour le Sénégal.",[m
+[32m+[m[32m    title: "NIU DEIM — Mobilité & Transport Urbain",[m
+[32m+[m[32m    description: "Version initiale du concept de mobilité urbaine. Cette application a servi de prototype et de test pour poser les bases de la plateforme DAKAR MOBILITY, en explorant l'agrégation des transports à Dakar.",[m
+     image: "",[m
+     tags: ["Next.js", "TypeScript", "Supabase"],[m
+[31m-    demo: "https://dakar-mobility-seven.vercel.app/",[m
+[32m+[m[32m    demo: "https://dakar-mobility-seven.vercel.app",[m
+     github: "https://github.com/macalouboubaa-lab/dakar-mobility",[m
+[32m+[m[32m    category: "Prototype & Mobilité",[m
+[32m+[m[32m  },[m
+[32m+[m
+[32m+[m[32m  // ==========================================================[m
+[32m+[m[32m  // PROJET 2 : DAKAR MOBILITY (Version finale)[m
+[32m+[m[32m  // ==========================================================[m
+[32m+[m[32m  {[m
+[32m+[m[32m    id: 2,[m
+[32m+[m[32m    title: "DAKAR MOBILITY",[m
+[32m+[m[32m    description: "Plateforme multi-modale qui agrège tous les transports de Dakar (BRT, TER, Cars Rapides, Ndiaga Ndiaye, taxis). Elle permet de trouver le meilleur trajet en combinant prix, durée et correspondances.",[m
+[32m+[m[32m    image: "",[m
+[32m+[m[32m    tags: ["Next.js", "TypeScript", "Supabase", "Mapbox"],[m
+[32m+[m[32m    demo: "https://dakar-mobility-v2-6sclny8ye-macalouboubaa-labs-projects.vercel.app",[m
+[32m+[m[32m    github: "https://github.com/macalouboubaa-lab/dakar-mobility",[m
+[32m+[m[32m    category: "Fullstack",[m
+[32m+[m[32m  },[m
+[32m+[m
+[32m+[m[32m  // ==========================================================[m
+[32m+[m[32m  // PROJET 3 : TERANGA — Mobilité & Voyages Transrégionaux[m
+[32m+[m[32m  // ==========================================================[m
+[32m+[m[32m  {[m
+[32m+[m[32m    id: 3,[m
+[32m+[m[32m    title: "TERANGA — Taxis & Voyages Transrégionaux",[m
+[32m+[m[32m    description: "Application inspirée de Yango, mais repensée pour le Sénégal. Elle vise à faciliter la réservation de taxis pour les longs trajets (ex : 'wargaidé') et les voyages entre les régions, tout en simplifiant la mobilité locale.",[m
+[32m+[m[32m    image: "",[m
+[32m+[m[32m    tags: ["Next.js", "TypeScript", "Supabase", "Mapbox"],[m
+[32m+[m[32m    demo: "https://teranga-theta.vercel.app",[m
+[32m+[m[32m    github: "https://github.com/macalouboubaa-lab/teranga",[m
+     category: "Fullstack",[m
+   },[m
+ ];[m
