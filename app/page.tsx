@@ -4,17 +4,10 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import Gallery from "@/components/Gallery";
 
-// Charger Hero dynamiquement sans SSR
-const Hero = dynamic(
-  () => import('@/components/Hero'),
-  { ssr: false }
-);
-
-const TerminalDemo = dynamic(
-  () => import('@/components/TerminalDemo'),
-  { ssr: false }
-);
+const Hero = dynamic(() => import('@/components/Hero'), { ssr: false });
+const TerminalDemo = dynamic(() => import('@/components/TerminalDemo'), { ssr: false });
 
 export default function Home() {
   return (
@@ -23,6 +16,7 @@ export default function Home() {
       <About />
       <Skills />
       <Projects />
+      <Gallery />
       <TerminalDemo />
       <Contact />
       <Footer />

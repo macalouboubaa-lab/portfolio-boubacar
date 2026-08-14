@@ -4,90 +4,73 @@ import Image from "next/image";
 import { useState } from "react";
 
 // ============================================================
-// VOS IMAGES — URLs directes depuis Supabase Storage
+// TEST AVEC URLS DIRECTES
 // ============================================================
+const STORAGE_URL = "https://jsmjrrmkcufzanpkbcuc.supabase.co/storage/v1/object/public/portfolio-assets/";
+
 const galleryItems = [
-  // ==========================================================
-  // GROUPE 1 : Freelance Informatique
-  // ==========================================================
   {
     id: 1,
-    src: "https://jsmjrrmkcufzanpkbcuc.supabase.co/storage/v1/object/public/portfolio-assets/affiche_info.jfif",
+    src: STORAGE_URL + "affiche_info.jfif",
     title: "Freelance Informatique",
     category: "Services numériques",
-    description: "Affiche promotionnelle de mes services freelance : formation informatique, création de sites web, design graphique, et assistance numérique.",
+    description: "Affiche promotionnelle de mes services freelance.",
   },
-  
-  // ==========================================================
-  // GROUPE 2 : Entrepreneuriat (Vente de chemises)
-  // ==========================================================
   {
     id: 2,
-    src: "https://jsmjrrmkcufzanpkbcuc.supabase.co/storage/v1/object/public/portfolio-assets/chemise.jfif",
+    src: STORAGE_URL + "chemise.jfif",
     title: "Entrepreneuriat — Vente de chemises",
     category: "Commerce",
-    description: "Collection de chemises haut de gamme dans le cadre de mon activité entrepreneuriale. Vente de vêtements, parfums et équipements sportifs.",
+    description: "Collection de chemises haut de gamme.",
   },
-  
-  // ==========================================================
-  // GROUPE 3 : Concours d'éloquence (THE BEST)
-  // ==========================================================
   {
     id: 3,
-    src: "https://jsmjrrmkcufzanpkbcuc.supabase.co/storage/v1/object/public/portfolio-assets/thebest.jfif",
+    src: STORAGE_URL + "thebest.jfif",
     title: "Concours THE BEST — Éloquence",
     category: "Débat & Leadership",
-    description: "Débatteur au concours THE BEST sur le thème : L'IA et la souveraineté numérique. Une expérience enrichissante sur l'importance de l'intelligence artificielle en Afrique.",
+    description: "Débatteur au concours THE BEST sur l'IA et la souveraineté numérique.",
   },
-  
-  // ==========================================================
-  // GROUPE 4 : Football Américain (Quarterback)
-  // ==========================================================
   {
     id: 4,
-    src: "https://jsmjrrmkcufzanpkbcuc.supabase.co/storage/v1/object/public/portfolio-assets/me.jfif",
+    src: STORAGE_URL + "me.jfif",
     title: "Football Américain — Quarterback",
     category: "Sport & Leadership",
-    description: "En action en tant que quarterback. Le football américain m'a appris la discipline, la stratégie et le leadership d'équipe.",
+    description: "En action en tant que quarterback.",
   },
   {
     id: 5,
-    src: "https://jsmjrrmkcufzanpkbcuc.supabase.co/storage/v1/object/public/portfolio-assets/me1.jfif",
+    src: STORAGE_URL + "me1.jfif",
     title: "Football Américain — Match",
     category: "Sport & Leadership",
-    description: "Moment clé d'un match de football américain. Le rôle de quarterback est essentiel pour coordonner l'attaque et prendre des décisions rapides.",
+    description: "Moment clé d'un match de football américain.",
   },
-  
-  // ==========================================================
-  // GROUPE 5 : Flag Football — Tournoi Régional (UGB)
-  // ==========================================================
   {
     id: 6,
-    src: "https://jsmjrrmkcufzanpkbcuc.supabase.co/storage/v1/object/public/portfolio-assets/afas0.jfif",
+    src: STORAGE_URL + "afas0.jfif",
     title: "Tournoi Régional Flag Football — AFAS",
     category: "Sport & Compétition",
-    description: "Tournoi régional de flag football. Je joue en tant que quarterback pour l'équipe USC FLAG. Un moment de compétition intense et d'esprit d'équipe.",
+    description: "Tournoi régional de flag football.",
   },
   {
     id: 7,
-    src: "https://jsmjrrmkcufzanpkbcuc.supabase.co/storage/v1/object/public/portfolio-assets/afas1.png",
+    src: STORAGE_URL + "afas1.png",
     title: "USC FLAG — Match de compétition",
     category: "Sport & Compétition",
-    description: "L'équipe USC FLAG en pleine action lors du tournoi régional.",
+    description: "L'équipe USC FLAG en pleine action.",
   },
   {
     id: 8,
-    src: "https://jsmjrrmkcufzanpkbcuc.supabase.co/storage/v1/object/public/portfolio-assets/afas2.png",
+    src: STORAGE_URL + "afas2.png",
     title: "USC FLAG — Action de jeu",
     category: "Sport & Compétition",
-    description: "Moment de jeu stratégique avec l'équipe USC FLAG. Le flag football est une discipline qui demande agilité et coordination.",
+    description: "Moment de jeu stratégique avec l'équipe USC FLAG.",
   },
   {
     id: 9,
-    src: "https://jsmjrrmkcufzanpkbcuc.supabase.co/storage/v1/object/public/portfolio-assets/usc_flag.jfif",
+    src: STORAGE_URL + "usc_flag.jfif",
     title: "USC FLAG — L'équipe",
     category: "Sport & Compétition",
-    description: "L'équipe USC FLAG, représentant l'UGB au tournoi régional. Une fierté de porter les couleurs de l'université.",
+    description: "L'équipe USC FLAG représentant l'UGB.",
   },
 ];
 
@@ -95,21 +78,22 @@ export default function Gallery() {
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [filter, setFilter] = useState<string>("all");
 
-  // Extraire les catégories uniques pour les filtres
   const categories = ["all", ...new Set(galleryItems.map((item) => item.category))];
-  
-  // Filtrer les éléments
   const filteredItems = filter === "all" 
     ? galleryItems 
     : galleryItems.filter((item) => item.category === filter);
 
   const selectedItem = galleryItems.find((item) => item.id === selectedId);
 
+  // ===== LOG DE TEST =====
+  console.log("🔍 Gallery: Nombre d'images à afficher:", galleryItems.length);
+  console.log("🔍 Gallery: URLs des images:", galleryItems.map(i => i.src));
+
   return (
     <section id="gallery" className="py-20 bg-[#0A1628]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* ===== EN-TÊTE ===== */}
+        {/* EN-TÊTE */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -125,7 +109,7 @@ export default function Gallery() {
           </p>
         </motion.div>
 
-        {/* ===== FILTRES PAR CATÉGORIE ===== */}
+        {/* FILTRES */}
         <div className="flex flex-wrap justify-center gap-2 mb-10">
           {categories.map((cat) => (
             <button
@@ -142,7 +126,7 @@ export default function Gallery() {
           ))}
         </div>
 
-        {/* ===== GRILLE DE PHOTOS ===== */}
+        {/* GRILLE DE PHOTOS */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredItems.map((item, index) => (
             <motion.div
@@ -155,30 +139,18 @@ export default function Gallery() {
               className="group cursor-pointer"
             >
               <div className="relative overflow-hidden rounded-2xl bg-[#1A2A3A] border border-[#243447] hover:border-[#D4AF37]/30 transition duration-300 h-full">
-                {/* Image */}
                 <div className="aspect-[4/3] relative bg-[#1A2A3A]">
                   <Image
                     src={item.src}
                     alt={item.title}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    unoptimized // Important pour les images distantes
+                    unoptimized
                     onError={(e) => {
-                      // En cas d'erreur, afficher un fallback
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                      const parent = target.parentElement;
-                      if (parent) {
-                        const fallback = document.createElement('div');
-                        fallback.className = 'w-full h-full flex items-center justify-center text-6xl';
-                        fallback.textContent = '🖼️';
-                        parent.appendChild(fallback);
-                      }
+                      console.error("❌ Erreur de chargement:", item.src);
                     }}
                   />
                 </div>
-                
-                {/* Informations */}
                 <div className="p-4">
                   <span className="text-xs text-[#D4AF37] font-medium">
                     {item.category}
@@ -195,7 +167,7 @@ export default function Gallery() {
           ))}
         </div>
 
-        {/* ===== MODALE ===== */}
+        {/* MODALE */}
         {selectedItem && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -214,7 +186,6 @@ export default function Gallery() {
               >
                 ✕
               </button>
-              
               <div className="relative w-full aspect-[4/3] bg-[#1A2A3A]">
                 <Image
                   src={selectedItem.src}
@@ -222,20 +193,8 @@ export default function Gallery() {
                   fill
                   className="object-contain"
                   unoptimized
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    const parent = target.parentElement;
-                    if (parent) {
-                      const fallback = document.createElement('div');
-                      fallback.className = 'w-full h-full flex items-center justify-center text-8xl';
-                      fallback.textContent = '🖼️';
-                      parent.appendChild(fallback);
-                    }
-                  }}
                 />
               </div>
-              
               <div className="p-6">
                 <span className="text-sm text-[#D4AF37] font-medium">
                   {selectedItem.category}
