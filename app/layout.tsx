@@ -42,8 +42,8 @@ export const metadata: Metadata = {
   icons: {
     // Favicon principal (format ICO pour compatibilité)
     icon: [
-      { url: "public/favicom.ico", sizes: "any" },
-      { url: "public/favicom.png", type: "image/png" },
+      { url: "public/favicon.ico", sizes: "any" },
+      { url: "public/favicon.png", type: "image/png" },
     ],
     // Icône pour les appareils Apple (iPhone, iPad)
     apple: "/apple-touch-icon.png",
