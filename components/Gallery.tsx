@@ -43,27 +43,20 @@ const galleryItems = [
   },
   {
     id: "6",
-    src: STORAGE_URL + "profile.jpeg",
-    title: "Mon Profil",
-    category: "Portrait",
-    description: "Photo de profil."
-  },
-  {
-    id: "7",
     src: STORAGE_URL + "samaCV.png",
     title: "SAMA CV",
     category: "Projets",
     description: "Plateforme de création de CV."
   },
   {
-    id: "8",
+    id: "7",
     src: STORAGE_URL + "teranga.png",
     title: "Teranga",
     category: "Projets",
     description: "Application de transport."
   },
   {
-    id: "9",
+    id: "8",
     src: STORAGE_URL + "thebest.jpg",
     title: "Concours THE BEST",
     category: "Éloquence",

@@ -146,7 +146,7 @@ export default function Hero() {
               <div className="absolute inset-0 bg-gradient-to-tr from-[#06b6d4]/20 to-[#0d1117] rounded-3xl blur-2xl" />
               <div className="relative w-full h-full rounded-3xl border border-[#30363d] bg-[#161b22] flex items-center justify-center overflow-hidden">
                 <Image
-                  src="https://jsmjrrmkcufzanpkbcuc.supabase.co/storage/v1/object/public/portfolio-assets/profile.jpeg"
+                  src="https://zajjddapctiromtjxths.supabase.co/storage/v1/object/public/portfolio-assets/profile.jpeg"
                   alt={personalInfo.name}
                   width={400}
                   height={400}
