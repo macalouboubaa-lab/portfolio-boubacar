@@ -1,0 +1,34 @@
+
+---
+
+### 2. `AUDIT.md`
+Ce fichier documente les problèmes rencontrés (images, contenu) et la façon dont ils ont été résolus, pour éviter que l'IA ne recrée les mêmes bugs.
+
+```markdown
+# AUDIT.md — Journal des Problèmes et Corrections
+
+## ✅ Problème Résolu : Images cassées sur Vercel
+- **Symptôme** : Les images de la galerie ne s'affichaient pas en production.
+- **Cause racine** : 
+  1. Le bucket Supabase avait été vidé/supprimé.
+  2. Le format `.jfif` posait des problèmes de compatibilité et de rendu.
+  3. `next.config.js` utilisait l'ancienne clé `domains` au lieu de `remotePatterns`.
+- **Solution appliquée** :
+  - Le bucket `portfolio-assets` a été recréé en mode **Public** via un script SQL.
+  - Les images ont été reconverties en `.jpg` et réuploadées.
+  - `next.config.js` a été mis à jour avec `remotePatterns`.
+  - Le code de `Gallery.tsx` a été mis à jour avec les bonnes extensions (`.jpg`).
+
+## ✅ Problème Résolu : Décalage de positionnement (Contenu)
+- **Symptôme** : Le portfolio présentait un profil de "développeur WordPress / commercial", alors que le CV montre un profil "Full-Stack & Infra".
+- **Solution appliquée** :
+  - Suppression de l'expérience "Vente de vêtements/parfums".
+  - Ajout des expériences en Supervision IT (InTouch) et Développement (Techno Futur).
+  - Mise à jour des compétences (ajout de Zabbix, Grafana, Linux, Next.js).
+  - Nettoyage de la galerie (retrait des photos non-professionnelles de l'accueil).
+  - Mise à jour des projets (ajout de SAMA CV, NDAR'GO, retrait de NIU DEIM).
+
+## 🧹 Tâches de Nettoyage (Backlog)
+- [ ] Supprimer les fichiers résiduels à la racine : `vote_bot.py`, `e à jour des projets...`, `tsconfig.json.bak`, `data/portfolio.ts.bak`.
+- [ ] Vérifier que le fichier `cv-boubacar.pdf` est bien présent dans le dossier `public/`.
+- [ ] Remplacer `public/favicom.png` par `public/favicon.png` et vérifier l'import dans `layout.tsx`.

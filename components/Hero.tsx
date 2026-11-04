@@ -85,14 +85,22 @@ export default function Hero() {
               {personalInfo.subtitle}
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href="/cv-boubacar.pdf"
+                href="/cv-boubacar-fr.pdf"
                 download
                 className="btn-roven"
               >
                 <Download size={18} className="inline mr-2" />
-                Télécharger mon CV
+                CV Français
+              </a>
+              <a
+                href="/cv-boubacar-en.pdf"
+                download
+                className="btn-roven-outline"
+              >
+                <Download size={18} className="inline mr-2" />
+                CV English
               </a>
               <Link
                 href="#contact"

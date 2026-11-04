@@ -19,7 +19,8 @@ export default function TerminalDemo() {
       ║  projects   → Liste des projets           ║
       ║  ls projects → Liste rapide des projets    ║
       ║  cat skills → Affiche les compétences      ║
-      ║  download cv → Télécharge mon CV           ║
+      ║  download cv fr → Télécharge le CV français ║
+      ║  download cv en → Download the English CV   ║
       ║  about      → Présentation                ║
       ║  contact    → Coordonnées                 ║
       ║  clear      → Efface le terminal          ║
@@ -41,18 +42,14 @@ export default function TerminalDemo() {
       ╔═══════════════════════════════════════════╗
       ║  📦 Projets :                            ║
       ${projects
-        .map((p) => `║  • ${p.title} → ${p.demo || "🔒 Privé"}`)
+        .map((p) => `║  • ${p.title} → ${p.demo || "Lien à venir"}`)
         .join("\n")}
       ╚═══════════════════════════════════════════╝
     `,
     "ls projects": () => projects.map((project) => `- ${project.title}`).join("\n"),
-    "download cv": () => {
-      const link = document.createElement("a");
-      link.href = "/cv-boubacar.pdf";
-      link.download = "cv-boubacar.pdf";
-      link.click();
-      return "Téléchargement du CV lancé.";
-    },
+    "download cv": () => downloadCv("fr"),
+    "download cv fr": () => downloadCv("fr"),
+    "download cv en": () => downloadCv("en"),
     about: () => `
       ╔═══════════════════════════════════════════╗
       ║  👋 ${personalInfo.name}                                      ║
@@ -73,6 +70,17 @@ export default function TerminalDemo() {
       return "";
     },
   };
+
+  function downloadCv(language: "fr" | "en") {
+    const filename = `cv-boubacar-${language}.pdf`;
+    const link = document.createElement("a");
+    link.href = `/${filename}`;
+    link.download = filename;
+    link.click();
+    return language === "fr"
+      ? "Téléchargement du CV français lancé."
+      : "English CV download started.";
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

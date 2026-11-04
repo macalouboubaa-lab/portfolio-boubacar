@@ -1,0 +1,37 @@
+# ARCHITECTURE.md — Structure et Fonctionnement du Portfolio
+
+## 🛠️ Stack Technique
+- **Framework** : Next.js 14.2.0 (App Router)
+- **Langage** : TypeScript
+- **Styling** : Tailwind CSS 3.3
+- **Animations** : Framer Motion, React Typewriter Effect
+- **Icônes** : Lucide React
+- **Déploiement** : Vercel
+- **Stockage Images** : Supabase Storage (Bucket : `portfolio-assets`)
+
+## 📁 Arborescence du Projet
+```text
+app/
+ ├── globals.css      # Styles globaux (Thème, Tailwind, polices)
+ ├── layout.tsx       # Layout racine (Métadonnées, favicon, structure HTML)
+ └── page.tsx         # Page d'accueil (Assemble tous les composants)
+components/
+ ├── About.tsx        # Section "À propos" et parcours
+ ├── Contact.tsx      # Section de contact
+ ├── Footer.tsx       # Pied de page
+ ├── Gallery.tsx      # Galerie photos (actuellement masquée de l'accueil)
+ ├── Header.tsx       # Barre de navigation
+ ├── Hero.tsx         # Section d'accroche principale (Titre, boutons)
+ ├── Projects.tsx     # Cartes des projets récents
+ ├── Skills.tsx       # Grille des compétences techniques
+ └── TerminalDemo.tsx # Terminal interactif (React Typewriter Effect)
+data/
+ └── portfolio.ts     # ⚠️ CŒUR DU SITE : Toutes les données textuelles (Expériences, Projets, Compétences)
+public/
+ ├── cv-boubacar.pdf  # ⚠️ À AJOUTER : CV téléchargeable
+ ├── favicon.png      # Favicon (corriger l'ancien "favicom.png")
+ └── images/
+     └── profile/     # Images locales de profil
+types/
+ ├── css.d.ts
+ └── react-typewriter-effect.d.ts

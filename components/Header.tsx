@@ -62,12 +62,20 @@ export default function Header() {
           {/* Actions */}
           <div className="hidden md:flex items-center gap-4">
             <a
-              href="/cv-boubacar.pdf"
+              href="/cv-boubacar-fr.pdf"
               download
-              className="flex items-center gap-2 px-4 py-2 text-sm bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg transition"
+              className="flex items-center gap-2 px-3 py-2 text-sm bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg transition"
             >
               <Download size={16} />
-              Télécharger mon CV
+              CV FR
+            </a>
+            <a
+              href="/cv-boubacar-en.pdf"
+              download
+              className="flex items-center gap-2 px-3 py-2 text-sm border border-cyan-600 hover:bg-cyan-600/10 text-cyan-400 rounded-lg transition"
+            >
+              <Download size={16} />
+              CV EN
             </a>
             <a
               href="#contact"
@@ -107,12 +115,20 @@ export default function Header() {
               ))}
               <div className="flex flex-col gap-2 pt-4 border-t border-zinc-800">
                 <a
-                  href="/cv-boubacar.pdf"
+                  href="/cv-boubacar-fr.pdf"
                   download
                   className="flex items-center justify-center gap-2 px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg transition"
                 >
                   <Download size={16} />
-                  Télécharger mon CV
+                  Télécharger le CV (FR)
+                </a>
+                <a
+                  href="/cv-boubacar-en.pdf"
+                  download
+                  className="flex items-center justify-center gap-2 px-4 py-2 border border-cyan-600 hover:bg-cyan-600/10 text-cyan-400 rounded-lg transition"
+                >
+                  <Download size={16} />
+                  Download CV (EN)
                 </a>
                 <a
                   href="#contact"

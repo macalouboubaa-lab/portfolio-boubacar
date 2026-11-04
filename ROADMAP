@@ -1,0 +1,31 @@
+# ROADMAP.md — Feuille de Route du Portfolio
+
+## 🟢 Fait (Terminé)
+- [x] Initialisation du projet Next.js 14 (App Router) + TypeScript + Tailwind.
+- [x] Création de tous les composants de base (Hero, About, Skills, Projects, Terminal, etc.).
+- [x] Configuration du déploiement continu sur Vercel.
+- [x] Centralisation des données dans `data/portfolio.ts`.
+- [x] Correction du bug des images Supabase (Bucket Public + format `.jpg`).
+- [x] Refonte du contenu textuel (alignement avec le CV : Infra, Full-Stack).
+- [x] Mise à jour du thème UI (Thème sombre type "IDE", boutons, polices).
+- [x] Ajout des liens GitHub/Live sur les cartes projets.
+- [x] Masquage de la galerie photo de la page d'accueil.
+
+## 🟡 En cours / À Finaliser (Urgent)
+- [ ] **CV** : Uploader le fichier `cv-boubacar.pdf` dans le dossier `public/` et s'assurer que le bouton de téléchargement du Header fonctionne.
+- [ ] **Terminal** : Vérifier l'ajout des nouvelles commandes (`ls projects`, `cat skills`, `download cv`).
+- [ ] **Nettoyage** : Supprimer les fichiers inutiles à la racine (`.bak`, `vote_bot.py`, etc.).
+- [ ] **Favicon** : Corriger le nom `favicom.png` en `favicon.png` et mettre à jour `layout.tsx`.
+
+## 🔵 Backlog (Améliorations Futures)
+- [ ] **SEO** : Ajouter des balises Open Graph et des métadonnées spécifiques pour le partage sur LinkedIn/Twitter.
+- [ ] **Formulaire de Contact** : Rendre le formulaire fonctionnel (via Resend, EmailJS ou une Server Action Next.js).
+- [ ] **Page Passions** : Créer une page séparée (ex: `/passions`) pour y déplacer la galerie photos (sport, entrepreneuriat) si souhaité.
+- [ ] **Performance** : Analyser les Core Web Vitals via Lighthouse et optimiser le chargement des images (passer de `unoptimized: true` à l'optimisation Next.js native).
+- [ ] **Blog** : Envisager l'ajout d'une section articles (MDX) pour partager des connaissances techniques.
+
+## 🤖 Règles pour l'Assistant IA
+- Ne jamais modifier `data/portfolio.ts` sans validation préalable.
+- Toujours tester la compilation (`npm run build`) après une modification majeure.
+- Ne pas toucher à la configuration Supabase dans `next.config.js`.
+- Travailler exclusivement sur les tâches listées dans "En cours" ou validées depuis le "Backlog".
