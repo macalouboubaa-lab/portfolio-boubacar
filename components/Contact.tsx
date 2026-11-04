@@ -29,7 +29,7 @@ export default function Contact() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl font-bold font-space-grotesk mb-4">
-            Me <span className="text-indigo-400">contacter</span>
+            Me <span className="text-cyan-400">contacter</span>
           </h2>
           <p className="text-zinc-400 max-w-2xl mx-auto">
             Une question, un projet, une collaboration ? N'hésitez pas à m'écrire.
@@ -46,23 +46,23 @@ export default function Contact() {
             className="space-y-6"
           >
             <div className="flex items-center gap-4 p-4 bg-zinc-900 rounded-xl border border-zinc-800">
-              <Mail className="text-indigo-400" size={24} />
+              <Mail className="text-cyan-400" size={24} />
               <div>
                 <p className="text-zinc-500 text-sm">Email</p>
-                <a href={`mailto:${personalInfo.email}`} className="text-white hover:text-indigo-400 transition">
+                <a href={`mailto:${personalInfo.email}`} className="text-white hover:text-cyan-400 transition">
                   {personalInfo.email}
                 </a>
               </div>
             </div>
             <div className="flex items-center gap-4 p-4 bg-zinc-900 rounded-xl border border-zinc-800">
-              <Phone className="text-indigo-400" size={24} />
+              <Phone className="text-cyan-400" size={24} />
               <div>
                 <p className="text-zinc-500 text-sm">Téléphone</p>
                 <span className="text-white">{personalInfo.phone}</span>
               </div>
             </div>
             <div className="flex items-center gap-4 p-4 bg-zinc-900 rounded-xl border border-zinc-800">
-              <MapPin className="text-indigo-400" size={24} />
+              <MapPin className="text-cyan-400" size={24} />
               <div>
                 <p className="text-zinc-500 text-sm">Localisation</p>
                 <span className="text-white">{personalInfo.location}</span>
@@ -85,7 +85,7 @@ export default function Contact() {
                 type="text"
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-indigo-500 transition"
+                className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-cyan-500 transition"
                 required
               />
             </div>
@@ -95,7 +95,7 @@ export default function Contact() {
                 type="email"
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-indigo-500 transition"
+                className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-cyan-500 transition"
                 required
               />
             </div>
@@ -105,7 +105,7 @@ export default function Contact() {
                 rows={4}
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-indigo-500 transition"
+                className="w-full px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-lg text-white focus:outline-none focus:border-cyan-500 transition"
                 required
               />
             </div>
@@ -115,7 +115,7 @@ export default function Contact() {
               className={`w-full flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium transition ${
                 status === "sending"
                   ? "bg-zinc-700 cursor-not-allowed"
-                  : "bg-indigo-600 hover:bg-indigo-700 text-white"
+                  : "bg-cyan-600 hover:bg-cyan-700 text-white"
               }`}
             >
               {status === "sending" ? "Envoi..." : status === "success" ? "✅ Message envoyé !" : (

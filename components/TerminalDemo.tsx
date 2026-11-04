@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { personalInfo, skills, about, projects } from "@/data/portfolio";
+import { personalInfo, skillsCategories, about, projects } from "@/data/portfolio";
 
 export default function TerminalDemo() {
   const [input, setInput] = useState("");
@@ -17,6 +17,9 @@ export default function TerminalDemo() {
       ║  help       → Affiche cette aide          ║
       ║  skills     → Liste des compétences       ║
       ║  projects   → Liste des projets           ║
+      ║  ls projects → Liste rapide des projets    ║
+      ║  cat skills → Affiche les compétences      ║
+      ║  download cv → Télécharge mon CV           ║
       ║  about      → Présentation                ║
       ║  contact    → Coordonnées                 ║
       ║  clear      → Efface le terminal          ║
@@ -25,11 +28,15 @@ export default function TerminalDemo() {
     skills: () => `
       ╔═══════════════════════════════════════════╗
       ║  🛠️ Compétences techniques :              ║
-      ║  Langages : ${skills.languages.join(", ")}     ║
-      ║  SGBD      : ${skills.databases.join(", ")}  ║
-      ║  Outils    : ${skills.tools.join(", ")}        ║
+      ${skillsCategories
+        .map((category) => `║  ${category.label} : ${category.items.join(", ")}`)
+        .join("\n")}
       ╚═══════════════════════════════════════════╝
     `,
+    "cat skills": () =>
+      skillsCategories
+        .map((category) => `${category.label}: ${category.items.join(", ")}`)
+        .join("\n"),
     projects: () => `
       ╔═══════════════════════════════════════════╗
       ║  📦 Projets :                            ║
@@ -38,6 +45,14 @@ export default function TerminalDemo() {
         .join("\n")}
       ╚═══════════════════════════════════════════╝
     `,
+    "ls projects": () => projects.map((project) => `- ${project.title}`).join("\n"),
+    "download cv": () => {
+      const link = document.createElement("a");
+      link.href = "/cv-boubacar.pdf";
+      link.download = "cv-boubacar.pdf";
+      link.click();
+      return "Téléchargement du CV lancé.";
+    },
     about: () => `
       ╔═══════════════════════════════════════════╗
       ║  👋 ${personalInfo.name}                                      ║
@@ -87,7 +102,7 @@ export default function TerminalDemo() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold font-space-grotesk mb-4">
-            Terminal <span className="text-indigo-400">interactif</span>
+            Terminal <span className="text-cyan-400">interactif</span>
           </h2>
           <p className="text-zinc-400 max-w-2xl mb-8">
             Testez mes compétences en direct ! Tapez une commande ci-dessous.
@@ -115,7 +130,7 @@ export default function TerminalDemo() {
               </pre>
             ))}
             <form onSubmit={handleSubmit} className="flex items-center gap-2 mt-2">
-              <span className="text-indigo-400">$</span>
+              <span className="text-cyan-400">$</span>
               <input
                 type="text"
                 value={input}

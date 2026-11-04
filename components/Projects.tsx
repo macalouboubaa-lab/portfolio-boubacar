@@ -20,7 +20,7 @@ export default function Projects() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold font-space-grotesk mb-4">
-            Projets <span className="text-indigo-400">récents</span>
+            Projets <span className="text-cyan-400">récents</span>
           </h2>
           <p className="text-zinc-400 max-w-2xl mb-8">
             Découvrez quelques-uns des projets que j'ai réalisés.
@@ -35,7 +35,7 @@ export default function Projects() {
               onClick={() => setFilter(cat)}
               className={`px-4 py-2 rounded-lg text-sm transition ${
                 filter === cat
-                  ? "bg-indigo-600 text-white"
+                  ? "bg-cyan-600 text-white"
                   : "bg-zinc-800 text-zinc-400 hover:bg-zinc-700"
               }`}
             >
@@ -53,14 +53,25 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 hover:border-indigo-500/30 transition"
+              className="group bg-[#161b22] rounded-xl overflow-hidden border border-[#30363d] hover:border-cyan-500/50 transition"
             >
-              <div className="h-48 bg-zinc-800 flex items-center justify-center text-4xl relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent" />
-                <span className="relative z-10">🚀</span>
+              <div className="h-48 bg-[#0d1117] relative overflow-hidden border-b border-[#30363d]">
+                <div className="flex items-center gap-2 px-4 py-3 bg-[#161b22] border-b border-[#30363d]">
+                  <span className="w-2.5 h-2.5 bg-red-500 rounded-full" />
+                  <span className="w-2.5 h-2.5 bg-yellow-500 rounded-full" />
+                  <span className="w-2.5 h-2.5 bg-green-500 rounded-full" />
+                  <span className="ml-2 flex-1 truncate rounded bg-[#0d1117] px-3 py-1 text-xs text-zinc-500 font-mono">
+                    {project.demo ? "live preview" : "project preview"}
+                  </span>
+                </div>
+                <div className="p-5 font-mono text-sm">
+                  <p className="text-cyan-400">$ open {project.title.toLowerCase()}</p>
+                  <p className="mt-2 text-zinc-400">&gt; {project.tags.join(" · ") || "à découvrir"}</p>
+                  <span className="mt-3 inline-block h-4 w-2 bg-cyan-400 animate-pulse" />
+                </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-white group-hover:text-indigo-400 transition">
+                <h3 className="text-xl font-semibold text-white group-hover:text-cyan-400 transition">
                   {project.title}
                 </h3>
                 <p className="text-zinc-400 text-sm mt-2">{project.description}</p>

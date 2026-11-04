@@ -26,7 +26,7 @@ export default function Skills() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold font-space-grotesk mb-4">
-            Compétences <span className="text-indigo-400">techniques</span>
+            Compétences <span className="text-cyan-400">techniques</span>
           </h2>
           <p className="text-zinc-400 max-w-2xl mb-8">
             Voici les technologies et outils que j'utilise au quotidien.
@@ -41,7 +41,7 @@ export default function Skills() {
               onClick={() => setActiveCategory(cat.id)}
               className={`px-4 py-2 rounded-lg text-sm transition ${
                 activeCategory === cat.id
-                  ? "bg-indigo-600 text-white"
+                  ? "bg-cyan-600 text-white"
                   : "bg-zinc-800 text-zinc-400 hover:bg-zinc-700"
               }`}
             >
@@ -51,7 +51,7 @@ export default function Skills() {
         </div>
 
         {/* Skills Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredSkills.map((category, catIndex) => (
             <motion.div
               key={category.id}
@@ -61,7 +61,7 @@ export default function Skills() {
               viewport={{ once: true }}
               className="bg-zinc-900/50 rounded-xl p-6 border border-zinc-800"
             >
-              <h3 className="text-lg font-semibold mb-4 text-indigo-400">
+              <h3 className="text-lg font-semibold mb-4 text-cyan-400">
                 {category.label}
               </h3>
               <div className="flex flex-wrap gap-2">

@@ -13,7 +13,7 @@ export default function About() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold font-space-grotesk mb-4">
-            À propos de <span className="text-indigo-400">moi</span>
+            À propos de <span className="text-cyan-400">moi</span>
           </h2>
           <p className="text-zinc-400 max-w-2xl mb-12">
             {about.description}
@@ -32,11 +32,11 @@ export default function About() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="relative pl-6 border-l border-indigo-500/30"
+                  className="relative pl-6 border-l border-cyan-500/30"
                 >
-                  <div className="absolute left-0 top-1.5 w-3 h-3 bg-indigo-500 rounded-full" />
+                  <div className="absolute left-0 top-1.5 w-3 h-3 bg-cyan-500 rounded-full" />
                   <h4 className="text-lg font-semibold text-white">{exp.title}</h4>
-                  <p className="text-indigo-400 text-sm">{exp.company}</p>
+                  <p className="text-cyan-400 text-sm">{exp.company}</p>
                   <p className="text-zinc-500 text-xs">{exp.date}</p>
                   <p className="text-zinc-400 text-sm mt-1">{exp.description}</p>
                 </motion.div>

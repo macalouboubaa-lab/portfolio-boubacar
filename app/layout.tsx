@@ -3,7 +3,7 @@
 // ============================================================
 
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, JetBrains_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 
@@ -23,13 +23,18 @@ const playfair = Playfair_Display({
   variable: "--font-playfair",
 });
 
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+});
+
 // ============================================================
 // 3. MÉTADONNÉES DE LA PAGE (SEO + FAVICON)
 // ============================================================
 
 export const metadata: Metadata = {
-  title: "Boubacar Cissé | Développeur Full-Stack",
-  description: "Portfolio de Boubacar Cissé - Développeur web passionné",
+  title: "Boubacar Cissé | Développeur Full-Stack & Superviseur IT",
+  description: "Portfolio de Boubacar Cissé - Développeur Full-Stack et Superviseur IT",
   
   // ============================================================
   // ICÔNES (FAVICON) — AJOUTÉ ICI
@@ -56,7 +61,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className="dark scroll-smooth">
-      <body className={`${inter.variable} ${playfair.variable} font-inter antialiased bg-[#0A1628] text-[#F5F5F5]`}>
+      <body className={`${inter.variable} ${playfair.variable} ${jetbrainsMono.variable} font-inter antialiased bg-[#0d1117] text-[#e6edf3]`}>
         {/* Menu de navigation fixe */}
         <Header />
         

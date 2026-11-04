@@ -1,5 +1,5 @@
 /* ============================================================
-   THEME ROVEN — Palette de couleurs (Version corrigée)
+   THEME TECH — Palette de couleurs
    ============================================================ */
 
 @tailwind base;
@@ -11,49 +11,49 @@
    ============================================================ */
 @layer base {
   :root {
-    /* Couleurs principales — Roven */
-    --roven-bg: #0A1628;           /* Fond principal (bleu nuit profond) */
-    --roven-bg-card: #1A2A3A;      /* Fond des cartes */
-    --roven-border: #243447;       /* Bordures */
-    --roven-text: #F5F5F5;         /* Texte principal (blanc cassé) */
-    --roven-text-secondary: #8A9BA8; /* Texte secondaire (gris bleuté) */
-    --roven-gold: #D4AF37;         /* Or — couleur principale des boutons */
-    --roven-gold-light: #E8C65A;   /* Or clair — survol des boutons */
-    --roven-gold-dark: #B8962F;    /* Or foncé — version alternative */
-    --roven-input: #1A2A3A;        /* Fond des inputs */
+    /* Couleurs principales — thème IDE */
+    --roven-bg: #0d1117;
+    --roven-bg-card: #161b22;
+    --roven-border: #30363d;
+    --roven-text: #e6edf3;
+    --roven-text-secondary: #8b949e;
+    --roven-cyan: #06b6d4;
+    --roven-cyan-light: #22d3ee;
+    --roven-cyan-dark: #0891b2;
+    --roven-input: #161b22;
     
     /* Ombres */
     --roven-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-    --roven-shadow-gold: 0 4px 20px rgba(212, 175, 55, 0.2);
-    --roven-shadow-gold-hover: 0 4px 30px rgba(212, 175, 55, 0.4);
+    --roven-shadow-cyan: 0 4px 20px rgba(6, 182, 212, 0.2);
+    --roven-shadow-cyan-hover: 0 4px 30px rgba(6, 182, 212, 0.4);
   }
 
   body {
-    @apply bg-[#0A1628] text-[#F5F5F5];
+    @apply bg-[#0d1117] text-[#e6edf3];
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
 
 /* ============================================================
-   SCROLLBAR (Dorée)
+   SCROLLBAR (Cyan)
    ============================================================ */
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0A1628;
+  background: #0d1117;
 }
 ::-webkit-scrollbar-thumb {
-  background: #D4AF37;
+  background: #06b6d4;
   border-radius: 9999px;
 }
 
 /* ============================================================
-   SELECTION (Dorée)
+   SELECTION (Cyan)
    ============================================================ */
 ::selection {
-  background: #D4AF37;
-  color: #0A1628;
+  background: #06b6d4;
+  color: #0d1117;
 }
 
 /* ============================================================
@@ -68,22 +68,22 @@ html {
    ============================================================ */
 @layer components {
   /* ==========================================================
-     BOUTON PRINCIPAL (Or) — Style Roven
+     BOUTON PRINCIPAL (Cyan) — Style Roven
      Utiliser sur : Réservation, CTA, actions principales
      ========================================================== */
   .btn-roven {
-    @apply bg-[#D4AF37] hover:bg-[#E8C65A] text-[#0A1628] font-semibold;
+    @apply bg-[#06b6d4] hover:bg-[#22d3ee] text-[#0d1117] font-semibold;
     @apply px-6 py-3 rounded-xl transition duration-300;
-    @apply shadow-[0_4px_20px_rgba(212,175,55,0.2)];
-    @apply hover:shadow-[0_4px_30px_rgba(212,175,55,0.4)] hover:-translate-y-0.5;
+    @apply shadow-[0_4px_20px_rgba(6,182,212,0.2)];
+    @apply hover:shadow-[0_4px_30px_rgba(6,182,212,0.4)] hover:-translate-y-0.5;
   }
 
   /* ==========================================================
-     BOUTON SECONDAIRE (Bordure dorée) — Style Roven
+     BOUTON SECONDAIRE (Bordure cyan) — Style Roven
      Utiliser sur : "Comment ça marche", actions secondaires
      ========================================================== */
   .btn-roven-outline {
-    @apply border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37]/10;
+    @apply border border-[#06b6d4] text-[#06b6d4] hover:bg-[#06b6d4]/10;
     @apply px-6 py-3 rounded-xl transition duration-300;
     @apply hover:-translate-y-0.5;
   }
@@ -92,7 +92,7 @@ html {
      BOUTON TEXTE (Lien doré) — Style Roven
      ========================================================== */
   .btn-roven-text {
-    @apply text-[#D4AF37] hover:text-[#E8C65A] font-medium;
+    @apply text-[#06b6d4] hover:text-[#22d3ee] font-medium;
     @apply transition duration-300 hover:underline;
   }
 
@@ -100,17 +100,17 @@ html {
      CARTE ROVEN
      ========================================================== */
   .card-roven {
-    @apply bg-[#1A2A3A] border border-[#243447] rounded-2xl;
+    @apply bg-[#161b22] border border-[#30363d] rounded-2xl;
     @apply shadow-[0_8px_32px_rgba(0,0,0,0.4)];
-    @apply hover:border-[#D4AF37]/30 transition duration-300;
+    @apply hover:border-[#06b6d4]/30 transition duration-300;
   }
 
   /* ==========================================================
      INPUT ROVEN
      ========================================================== */
   .input-roven {
-    @apply bg-[#1A2A3A] border border-[#243447] text-[#F5F5F5];
-    @apply rounded-xl px-4 py-3 focus:border-[#D4AF37] focus:outline-none;
+    @apply bg-[#161b22] border border-[#30363d] text-[#e6edf3];
+    @apply rounded-xl px-4 py-3 focus:border-[#06b6d4] focus:outline-none;
     @apply transition duration-300;
   }
 
@@ -118,22 +118,22 @@ html {
      EFFET VERRE (Glassmorphism)
      ========================================================== */
   .glass-roven {
-    @apply bg-[#1A2A3A]/80 backdrop-blur-md border border-[#243447]/50;
+    @apply bg-[#161b22]/80 backdrop-blur-md border border-[#30363d]/50;
     @apply shadow-[0_8px_32px_rgba(0,0,0,0.3)];
   }
 
   /* ==========================================================
-     LIEN DORÉ
+     LIEN CYAN
      ========================================================== */
   .link-gold {
-    @apply text-[#D4AF37] hover:text-[#E8C65A] transition duration-300;
+    @apply text-[#06b6d4] hover:text-[#22d3ee] transition duration-300;
   }
 
   /* ==========================================================
      TEXTE DORÉ
      ========================================================== */
   .text-gold {
-    @apply text-[#D4AF37];
+    @apply text-[#06b6d4];
   }
 
   /* ==========================================================
@@ -141,8 +141,8 @@ html {
      ========================================================== */
   .badge-roven {
     @apply inline-flex items-center gap-2 px-3 py-1;
-    @apply bg-[#D4AF37]/10 border border-[#D4AF37]/20;
-    @apply rounded-full text-[#D4AF37] text-sm;
+    @apply bg-[#06b6d4]/10 border border-[#06b6d4]/20;
+    @apply rounded-full text-[#06b6d4] text-sm;
   }
 
   /* ==========================================================
@@ -153,11 +153,11 @@ html {
   }
 
   .hero-title .highlight {
-    @apply text-[#D4AF37];
+    @apply text-[#06b6d4];
   }
 
   .hero-subtitle {
-    @apply text-lg sm:text-xl text-[#D4AF37] font-light;
+    @apply text-lg sm:text-xl text-[#06b6d4] font-light;
   }
 
   /* ==========================================================
@@ -168,13 +168,13 @@ html {
   }
 
   .section-title .highlight {
-    @apply text-[#D4AF37];
+    @apply text-[#06b6d4];
   }
 
   /* ==========================================================
      TEXTE DE DESCRIPTION
      ========================================================== */
   .text-secondary {
-    @apply text-[#8A9BA8];
+    @apply text-[#8b949e];
   }
 }

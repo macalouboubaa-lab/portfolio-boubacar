@@ -4,7 +4,7 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import Gallery from "@/components/Gallery";
+// import Gallery from "@/components/Gallery";
 
 const Hero = dynamic(() => import('@/components/Hero'), { ssr: false });
 const TerminalDemo = dynamic(() => import('@/components/TerminalDemo'), { ssr: false });
@@ -16,7 +16,7 @@ export default function Home() {
       <About />
       <Skills />
       <Projects />
-      <Gallery />
+      {/* <Gallery /> */}
       <TerminalDemo />
       <Contact />
       <Footer />

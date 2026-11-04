@@ -38,8 +38,8 @@ export default function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="#home" className="text-xl font-bold text-white hover:text-indigo-400 transition">
-            BC<span className="text-indigo-400">.</span>
+          <Link href="#home" className="text-xl font-bold text-white hover:text-cyan-400 transition">
+            BC<span className="text-cyan-400">.</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -50,7 +50,7 @@ export default function Header() {
                 href={link.href}
                 className={`text-sm transition ${
                   activeSection === link.href.replace("#", "")
-                    ? "text-indigo-400"
+                    ? "text-cyan-400"
                     : "text-zinc-400 hover:text-white"
                 }`}
               >
@@ -62,16 +62,16 @@ export default function Header() {
           {/* Actions */}
           <div className="hidden md:flex items-center gap-4">
             <a
-              href="/cv.pdf"
+              href="/cv-boubacar.pdf"
               download
-              className="flex items-center gap-2 px-4 py-2 text-sm bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition"
+              className="flex items-center gap-2 px-4 py-2 text-sm bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg transition"
             >
               <Download size={16} />
-              CV
+              Télécharger mon CV
             </a>
             <a
               href="#contact"
-              className="flex items-center gap-2 px-4 py-2 text-sm border border-zinc-700 hover:border-indigo-500 text-zinc-300 hover:text-white rounded-lg transition"
+              className="flex items-center gap-2 px-4 py-2 text-sm border border-zinc-700 hover:border-cyan-500 text-zinc-300 hover:text-white rounded-lg transition"
             >
               <Mail size={16} />
               Contact
@@ -98,7 +98,7 @@ export default function Header() {
                   onClick={() => setIsOpen(false)}
                   className={`text-sm transition ${
                     activeSection === link.href.replace("#", "")
-                      ? "text-indigo-400"
+                      ? "text-cyan-400"
                       : "text-zinc-400 hover:text-white"
                   }`}
                 >
@@ -107,16 +107,16 @@ export default function Header() {
               ))}
               <div className="flex flex-col gap-2 pt-4 border-t border-zinc-800">
                 <a
-                  href="/cv.pdf"
+                  href="/cv-boubacar.pdf"
                   download
-                  className="flex items-center justify-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition"
+                  className="flex items-center justify-center gap-2 px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg transition"
                 >
                   <Download size={16} />
-                  Télécharger le CV
+                  Télécharger mon CV
                 </a>
                 <a
                   href="#contact"
-                  className="flex items-center justify-center gap-2 px-4 py-2 border border-zinc-700 hover:border-indigo-500 text-zinc-300 hover:text-white rounded-lg transition"
+                  className="flex items-center justify-center gap-2 px-4 py-2 border border-zinc-700 hover:border-cyan-500 text-zinc-300 hover:text-white rounded-lg transition"
                 >
                   <Mail size={16} />
                   Me contacter

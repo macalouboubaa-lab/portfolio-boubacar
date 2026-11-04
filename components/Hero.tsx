@@ -11,9 +11,9 @@ export default function Hero() {
   const [textIndex, setTextIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const titles = [
-    "Développeur Full-Stack Junior",
+    personalInfo.title,
     "Génie Logiciel",
-    "Formateur & Entrepreneur",
+    "Superviseur IT",
   ];
 
   useEffect(() => {
@@ -66,7 +66,7 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
           >
             <div className="badge-roven mb-6">
-              <span className="w-2 h-2 bg-[#D4AF37] rounded-full animate-pulse" />
+              <span className="w-2 h-2 bg-[#06b6d4] rounded-full animate-pulse" />
               {personalInfo.status}
             </div>
 
@@ -76,9 +76,9 @@ export default function Hero() {
               <span className="text-[#F5F5F5]">{personalInfo.name}</span>
             </h1>
 
-            <div className="mt-2 text-lg sm:text-xl text-[#D4AF37] min-h-[2.5rem]">
+            <div className="mt-2 text-lg sm:text-xl text-[#06b6d4] min-h-[2.5rem]">
               {isMounted ? displayText : titles[0]}
-              {isMounted && <span className="inline-block w-0.5 h-6 ml-1 bg-[#D4AF37] animate-pulse" />}
+              {isMounted && <span className="inline-block w-0.5 h-6 ml-1 bg-[#06b6d4] animate-pulse" />}
             </div>
 
             <p className="mt-6 text-[#8A9BA8] max-w-lg">
@@ -87,12 +87,12 @@ export default function Hero() {
 
             <div className="mt-8 flex flex-wrap gap-4">
               <a
-                href="/cv.pdf"
+                href="/cv-boubacar.pdf"
                 download
                 className="btn-roven"
               >
                 <Download size={18} className="inline mr-2" />
-                Télécharger le CV
+                Télécharger mon CV
               </a>
               <Link
                 href="#contact"
@@ -107,23 +107,23 @@ export default function Hero() {
                 href={personalInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 bg-[#1A2A3A] hover:bg-[#243447] rounded-lg transition group"
+                className="p-2.5 bg-[#161b22] hover:bg-[#30363d] rounded-lg transition group"
               >
-                <Github size={20} className="text-[#8A9BA8] group-hover:text-[#D4AF37] transition" />
+                <Github size={20} className="text-[#8b949e] group-hover:text-[#06b6d4] transition" />
               </a>
               <a
                 href={personalInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 bg-[#1A2A3A] hover:bg-[#243447] rounded-lg transition group"
+                className="p-2.5 bg-[#161b22] hover:bg-[#30363d] rounded-lg transition group"
               >
-                <Linkedin size={20} className="text-[#8A9BA8] group-hover:text-[#D4AF37] transition" />
+                <Linkedin size={20} className="text-[#8b949e] group-hover:text-[#06b6d4] transition" />
               </a>
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="p-2.5 bg-[#1A2A3A] hover:bg-[#243447] rounded-lg transition group"
+                className="p-2.5 bg-[#161b22] hover:bg-[#30363d] rounded-lg transition group"
               >
-                <Mail size={20} className="text-[#8A9BA8] group-hover:text-[#D4AF37] transition" />
+                <Mail size={20} className="text-[#8b949e] group-hover:text-[#06b6d4] transition" />
               </a>
             </div>
           </motion.div>
@@ -135,8 +135,8 @@ export default function Hero() {
             className="flex justify-center lg:justify-end"
           >
             <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#D4AF37]/20 to-[#0A1628] rounded-3xl blur-2xl" />
-              <div className="relative w-full h-full rounded-3xl border border-[#243447] bg-[#1A2A3A] flex items-center justify-center overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#06b6d4]/20 to-[#0d1117] rounded-3xl blur-2xl" />
+              <div className="relative w-full h-full rounded-3xl border border-[#30363d] bg-[#161b22] flex items-center justify-center overflow-hidden">
                 <Image
                   src="https://jsmjrrmkcufzanpkbcuc.supabase.co/storage/v1/object/public/portfolio-assets/profile.jpeg"
                   alt={personalInfo.name}
