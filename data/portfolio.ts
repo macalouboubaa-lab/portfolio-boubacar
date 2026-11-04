@@ -45,6 +45,12 @@ export const experiences = [
 
 export const education = [
   {
+    degree: "Master 1 en Développement de Systèmes d'Information (validé)",
+    school: "CFPP, Université Gaston Berger",
+    date: "2024 - 2025",
+    note: "Année validée. Interruption du cursus pour raisons personnelles.",
+  },
+  {
     degree: "Licence Professionnelle en Génie Informatique",
     school: "Université Gaston Berger de Saint-Louis",
     date: "2024 - 2025",
@@ -64,13 +70,23 @@ export const education = [
 export const skills = {
   frontend: ["Next.js", "TypeScript", "React", "PHP", "HTML/CSS"],
   databases: ["Supabase", "PostgreSQL", "MySQL"],
-  infrastructure: ["Linux", "Zabbix", "Grafana", "Réseaux TCP/IP", "Git"],
+  infrastructure: [
+    "Linux (Administration)",
+    "Windows (Administration)",
+    "Docker",
+    "Zabbix",
+    "Grafana",
+    "Réseaux TCP/IP",
+    "Git",
+  ],
+  cybersecurity: ["Bases en SOC", "Analyse de logs"],
 };
 
 export const skillsCategories = [
-  { id: "frontend", label: "Front/Back", items: skills.frontend },
+  { id: "frontend", label: "Développement", items: skills.frontend },
   { id: "databases", label: "Base de données & BaaS", items: skills.databases },
-  { id: "infrastructure", label: "Infra & Supervision", items: skills.infrastructure },
+  { id: "infrastructure", label: "Infra & Systèmes", items: skills.infrastructure },
+  { id: "cybersecurity", label: "Cybersécurité", items: skills.cybersecurity },
 ];
 
 export const projects = [

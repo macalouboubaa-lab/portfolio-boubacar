@@ -57,6 +57,9 @@ export default function About() {
                   <div>
                     <h4 className="text-white font-medium">{edu.degree}</h4>
                     <p className="text-zinc-400 text-sm">{edu.school}</p>
+                    {edu.note && (
+                      <p className="text-zinc-500 text-xs mt-1">{edu.note}</p>
+                    )}
                   </div>
                   <span className="text-zinc-500 text-xs whitespace-nowrap ml-4">{edu.date}</span>
                 </motion.div>

@@ -3,80 +3,78 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 
-// ============================================================
-// TEST AVEC URLS DIRECTES
-// ============================================================
-const STORAGE_URL = "https://jsmjrrmkcufzanpkbcuc.supabase.co/storage/v1/object/public/portfolio-assets/";
+const STORAGE_URL = "https://zajjddapctiromtjxths.supabase.co/storage/v1/object/public/portfolio-assets/";
 
 const galleryItems = [
   {
-    id: 1,
-    src: STORAGE_URL + "affiche_info.jfif",
-    title: "Freelance Informatique",
-    category: "Services numériques",
-    description: "Affiche promotionnelle de mes services freelance.",
-  },
-  {
-    id: 2,
-    src: STORAGE_URL + "chemise.jfif",
-    title: "Entrepreneuriat — Vente de chemises",
-    category: "Commerce",
-    description: "Collection de chemises haut de gamme.",
-  },
-  {
-    id: 3,
-    src: STORAGE_URL + "thebest.jfif",
-    title: "Concours THE BEST — Éloquence",
-    category: "Débat & Leadership",
-    description: "Débatteur au concours THE BEST sur l'IA et la souveraineté numérique.",
-  },
-  {
-    id: 4,
-    src: STORAGE_URL + "me.jfif",
-    title: "Football Américain — Quarterback",
-    category: "Sport & Leadership",
-    description: "En action en tant que quarterback.",
-  },
-  {
-    id: 5,
-    src: STORAGE_URL + "me1.jfif",
-    title: "Football Américain — Match",
-    category: "Sport & Leadership",
-    description: "Moment clé d'un match de football américain.",
-  },
-  {
-    id: 6,
-    src: STORAGE_URL + "afas0.jfif",
-    title: "Tournoi Régional Flag Football — AFAS",
-    category: "Sport & Compétition",
-    description: "Tournoi régional de flag football.",
-  },
-  {
-    id: 7,
+    id: "1",
     src: STORAGE_URL + "afas1.png",
-    title: "USC FLAG — Match de compétition",
-    category: "Sport & Compétition",
-    description: "L'équipe USC FLAG en pleine action.",
+    title: "Tournoi AFAS",
+    category: "Sport",
+    description: "Participation au tournoi régional."
   },
   {
-    id: 8,
-    src: STORAGE_URL + "afas2.png",
-    title: "USC FLAG — Action de jeu",
-    category: "Sport & Compétition",
-    description: "Moment de jeu stratégique avec l'équipe USC FLAG.",
+    id: "2",
+    src: STORAGE_URL + "affiche_info.jpg",
+    title: "Freelance Informatique",
+    category: "Services",
+    description: "Affiche de mes services numériques."
   },
   {
-    id: 9,
-    src: STORAGE_URL + "usc_flag.jfif",
-    title: "USC FLAG — L'équipe",
-    category: "Sport & Compétition",
-    description: "L'équipe USC FLAG représentant l'UGB.",
+    id: "3",
+    src: STORAGE_URL + "chemise.jpg",
+    title: "Entrepreneuriat",
+    category: "Commerce",
+    description: "Vente de chemises."
   },
+  {
+    id: "4",
+    src: STORAGE_URL + "dkmobility.png",
+    title: "Dakar Mobility",
+    category: "Projets",
+    description: "Interface de l'application de mobilité."
+  },
+  {
+    id: "5",
+    src: STORAGE_URL + "jumprope.png",
+    title: "Logo Jimprope",
+    category: "Design",
+    description: "Création graphique."
+  },
+  {
+    id: "6",
+    src: STORAGE_URL + "profile.jpeg",
+    title: "Mon Profil",
+    category: "Portrait",
+    description: "Photo de profil."
+  },
+  {
+    id: "7",
+    src: STORAGE_URL + "samaCV.png",
+    title: "SAMA CV",
+    category: "Projets",
+    description: "Plateforme de création de CV."
+  },
+  {
+    id: "8",
+    src: STORAGE_URL + "teranga.png",
+    title: "Teranga",
+    category: "Projets",
+    description: "Application de transport."
+  },
+  {
+    id: "9",
+    src: STORAGE_URL + "thebest.jpg",
+    title: "Concours THE BEST",
+    category: "Éloquence",
+    description: "Débat sur l'IA et la souveraineté numérique."
+  }
 ];
 
 export default function Gallery() {
-  const [selectedId, setSelectedId] = useState<number | null>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
   const [filter, setFilter] = useState<string>("all");
+  const [failedImageIds, setFailedImageIds] = useState<string[]>([]);
 
   const categories = ["all", ...new Set(galleryItems.map((item) => item.category))];
   const filteredItems = filter === "all" 
@@ -84,10 +82,6 @@ export default function Gallery() {
     : galleryItems.filter((item) => item.category === filter);
 
   const selectedItem = galleryItems.find((item) => item.id === selectedId);
-
-  // ===== LOG DE TEST =====
-  console.log("🔍 Gallery: Nombre d'images à afficher:", galleryItems.length);
-  console.log("🔍 Gallery: URLs des images:", galleryItems.map(i => i.src));
 
   return (
     <section id="gallery" className="py-20 bg-[#0A1628]">
@@ -140,16 +134,29 @@ export default function Gallery() {
             >
               <div className="relative overflow-hidden rounded-2xl bg-[#1A2A3A] border border-[#243447] hover:border-[#D4AF37]/30 transition duration-300 h-full">
                 <div className="aspect-[4/3] relative bg-[#1A2A3A]">
-                  <Image
-                    src={item.src}
-                    alt={item.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    unoptimized
-                    onError={(e) => {
-                      console.error("❌ Erreur de chargement:", item.src);
-                    }}
-                  />
+                  {failedImageIds.includes(item.id) ? (
+                    <div
+                      role="img"
+                      aria-label={item.title}
+                      className="absolute inset-0 flex items-center justify-center p-4 text-center text-zinc-300"
+                    >
+                      {item.title}
+                    </div>
+                  ) : (
+                    <Image
+                      src={item.src}
+                      alt={item.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      unoptimized
+                      onError={() => {
+                        console.error(`[Gallery] Échec du chargement : ${item.src}`);
+                        setFailedImageIds((ids) =>
+                          ids.includes(item.id) ? ids : [...ids, item.id]
+                        );
+                      }}
+                    />
+                  )}
                 </div>
                 <div className="p-4">
                   <span className="text-xs text-[#D4AF37] font-medium">
@@ -187,13 +194,29 @@ export default function Gallery() {
                 ✕
               </button>
               <div className="relative w-full aspect-[4/3] bg-[#1A2A3A]">
-                <Image
-                  src={selectedItem.src}
-                  alt={selectedItem.title}
-                  fill
-                  className="object-contain"
-                  unoptimized
-                />
+                {failedImageIds.includes(selectedItem.id) ? (
+                  <div
+                    role="img"
+                    aria-label={selectedItem.title}
+                    className="absolute inset-0 flex items-center justify-center p-4 text-center text-zinc-300"
+                  >
+                    {selectedItem.title}
+                  </div>
+                ) : (
+                  <Image
+                    src={selectedItem.src}
+                    alt={selectedItem.title}
+                    fill
+                    className="object-contain"
+                    unoptimized
+                    onError={() => {
+                      console.error(`[Gallery] Échec du chargement : ${selectedItem.src}`);
+                      setFailedImageIds((ids) =>
+                        ids.includes(selectedItem.id) ? ids : [...ids, selectedItem.id]
+                      );
+                    }}
+                  />
+                )}
               </div>
               <div className="p-6">
                 <span className="text-sm text-[#D4AF37] font-medium">
