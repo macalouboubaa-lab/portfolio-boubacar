@@ -35,19 +35,6 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Boubacar Cissé | Développeur Full-Stack & Superviseur IT",
   description: "Portfolio de Boubacar Cissé - Développeur Full-Stack et Superviseur IT",
-  
-  // ============================================================
-  // ICÔNES (FAVICON) — AJOUTÉ ICI
-  // ============================================================
-  icons: {
-    // Favicon principal (format ICO pour compatibilité)
-    icon: [
-      { url: "public/favicon.ico", sizes: "any" },
-      { url: "public/favicon.png", type: "image/png" },
-    ],
-    // Icône pour les appareils Apple (iPhone, iPad)
-    apple: "/apple-touch-icon.png",
-  },
 };
 
 // ============================================================
